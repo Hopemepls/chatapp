@@ -82,7 +82,7 @@ function App() {
                   wordWrap: 'break-word'
                 }}
               >
-                <div>{msg.username}:</div> 
+                <strong>{msg.username}:</strong> 
                 <div>{msg.text}</div>
               </div>
             </div>
