@@ -60,7 +60,7 @@ function App() {
       </div>
       
       {/* Список сообщений */}
-      <div style={{ listStyle: 'none', padding: 0, margin: 0, height: '300px', overflowY: 'scroll', border: '1px solid #ccc', padding: '10px' }}>
+      <div style={{ listStyle: 'none', padding: 0, margin: 0, height: '600px', overflowY: 'scroll', border: '1px solid #ccc', padding: '10px' }}>
         {messages.map(msg => {
           const isCurrentUser = msg.username === username; // Проверяем, сообщение от текущего пользователя
           return (
@@ -82,7 +82,8 @@ function App() {
                   wordWrap: 'break-word'
                 }}
               >
-                <strong>{msg.username}:</strong> {msg.text}
+                <div>{msg.username}:</div> 
+                <div>{msg.text}</div>
               </div>
             </div>
           );
