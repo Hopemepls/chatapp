@@ -9,7 +9,7 @@ function App() {
   const [username, setUsername] = useState('');  // Новое состояние для имени пользователя
 
   useEffect(() => {
-    fetch('http://localhost:3001/messages')
+    fetch('https://chatapp-server61.onrender.com/messages')
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
