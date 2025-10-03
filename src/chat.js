@@ -60,13 +60,34 @@ function App() {
       </div>
       
       {/* Список сообщений */}
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0, height: '300px', overflowY: 'scroll', border: '1px solid #ccc', padding: '10px' }}>
-        {messages.map(msg => (
-          <li key={msg.id} style={{ marginBottom: '5px' }}>
-            <strong>{msg.username}:</strong> {msg.text}
-          </li>
-        ))}
-      </ul>
+      <div style={{ listStyle: 'none', padding: 0, margin: 0, height: '300px', overflowY: 'scroll', border: '1px solid #ccc', padding: '10px' }}>
+        {messages.map(msg => {
+          const isCurrentUser = msg.username === username; // Проверяем, сообщение от текущего пользователя
+          return (
+            <div
+              key={msg.id}
+              style={{
+                display: 'flex',
+                justifyContent: isCurrentUser ? 'flex-end' : 'flex-start', // Выравнивание: справа для ваших, слева для чужих
+                marginBottom: '10px'
+              }}
+            >
+              <div
+                style={{
+                  maxWidth: '70%',
+                  padding: '10px',
+                  borderRadius: '10px',
+                  backgroundColor: isCurrentUser ? '#007bff' : '#f1f1f1', // Синий для ваших, серый для чужих
+                  color: isCurrentUser ? 'white' : 'black',
+                  wordWrap: 'break-word'
+                }}
+              >
+                <strong>{msg.username}:</strong> {msg.text}
+              </div>
+            </div>
+          );
+        })}
+      </div>
       
       {/* Поле ввода сообщения и кнопка */}
       <div style={{ marginTop: '10px' }}>
